@@ -1,5 +1,22 @@
-.font {
-    font-size: var(--big-font-size);
-    font-family: var(--body-font);
-    color: aquamarine;
+.level1 {
+    position: fixed;
+    z-index: 10;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 1px 2px 0 #ccc;
+    /* box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); */
+}
+
+.level2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
 }

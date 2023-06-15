@@ -1,0 +1,55 @@
+.usermenu {
+    position: relative;
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+}
+
+.item1 {
+    padding: .75rem 1.5rem;
+    cursor: pointer;
+}
+
+.item2 {
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    box-shadow: 0 1px 2px 0 #ccc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: 0ms;
+}
+
+.item2:hover {
+    box-shadow: #ccc;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    position: absolute;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 #ccc;
+    width: 200px;
+    background: white;
+    overflow: hidden;
+    right: 0;
+    top: 12;
+}
+
+.dropdownContent {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}

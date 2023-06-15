@@ -10,7 +10,6 @@ import Signup from './pages/Signup';
 import './App.css';
 
 
-
 const App = () => {
     return (
         <div>

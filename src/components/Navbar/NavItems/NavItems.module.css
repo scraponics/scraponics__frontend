@@ -1,0 +1,29 @@
+.navitems {
+    border: 1px solid #ccc;
+    padding: .75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 1px 2px 0 #ccc;
+    transition: 2s;
+    cursor: pointer;
+}
+
+.navBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item1 {
+    padding: 0 1rem 0 0;
+}
+
+.item2 {
+    padding: 0 1rem;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.item3 {
+    padding: 0 0 0 1rem;
+}
