@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.dropdown {
+  width: 300px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  margin-right: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.393);
+}
+.dropdown .dropdownbtn {
+  background: #fff;
+  padding-left: 10px;
+  font-weight: normal;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+.dropdown .dropdowncontent {
+  z-index: 1;
+  position: absolute;
+  top: 120%;
+  left: 0;
+  padding: 8px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #686868;
+  width: 100%;
+}
+.dropdown .dropdowncontent .dropdownitem {
+  padding: 10px;
+  cursor: pointer;
+}
+.dropdown .dropdowncontent .dropdownitem:hover {
+  background: #f4f4f4;
+  transition: all 0.2s;
+}
+.container input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+.container input::placeholder {
+  color: #c6c6c6;
+  font-size: medium;
+}
+.container label {
+  margin-left: 10px;
+  background-color: #686868;
+  width: 100px;
+  height: 38px;
+  color: #fff;
+  padding-left: 5px;
+  padding-top: 6px;
+  cursor: pointer;
+}
