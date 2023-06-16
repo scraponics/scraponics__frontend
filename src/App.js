@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Rate from './pages/Rate';
 
 // styles
 import './App.css';
@@ -16,6 +17,7 @@ const App = () => {
             <div className="routes">
                 <Routes>
                     <Route exact path='/' element={<Home />} />
+                    <Route exact path='/Rate' element={<Rate/>} />
                     <Route exact path='/login' element={<Login />} />
                     <Route exact path='/signup' element={<Signup />} />
                 </Routes>
