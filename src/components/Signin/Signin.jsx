@@ -55,7 +55,7 @@ function Signin() {
               <p className={classes.label}>Password : </p>
               <div className={classes.form__group}>
                 <input
-                  type="Password"
+                  type="password"
                   className={classes.form__password}
                   name="Password"
                   placeholder="Password"
