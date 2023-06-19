@@ -9,7 +9,8 @@ import {
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import '../../assets/pollution control board 1.png'
+import polimg from '../../assets/pollution-control-board.png'
+import stakeholderimg from '../../assets/stakeholders.png'
 
 import classes from "./Footer.module.css";
 
@@ -111,7 +112,10 @@ function Footer() {
             </ul>
           </div>
           <div className={classes.img}>
-            <img src="##" alt="Pollution Control Board image" />
+            <img src={polimg} alt="Pollution Control Board image" />
+          </div>
+          <div className={classes.img}>
+            <img src={stakeholderimg} alt="Pollution Control Board image" />
           </div>
         </div>
       </footer>
