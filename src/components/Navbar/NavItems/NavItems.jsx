@@ -9,26 +9,23 @@ const NavItems = () => {
             <div className={classes.navBox}>
 
                 <div className={classes.item1}>
-                    anythng
+                    Home
                 </div>
 
                 <div className={classes.item2}>
-                    anything
+                    About
                 </div>
                 <div className={classes.item2}>
-                    anythng
+                    Services
                 </div>
 
                 <div className={classes.item2}>
-                    anything
+                    Rates
                 </div>
                 <div className={classes.item2}>
-                    anythng
+                    Resources
                 </div>
 
-                <div className={classes.item3}>
-                    anything
-                </div>
             </div>
 
         </div>
