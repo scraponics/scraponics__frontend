@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Rate from './pages/Rate';
+import UserDashboard from './pages/UserDashboard'
 
 // styles
 import './App.css';
@@ -17,6 +18,7 @@ const App = () => {
             <div className="routes">
                 <Routes>
                     <Route exact path='/' element={<Home />} />
+                    <Route exact path='/UserDash' element={<UserDashboard/>}/>
                     <Route exact path='/Rate' element={<Rate/>} />
                     <Route exact path='/login' element={<Login />} />
                     <Route exact path='/signup' element={<Signup />} />
