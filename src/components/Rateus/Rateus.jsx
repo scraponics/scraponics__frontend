@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import search from "../../assets/search-1.png";
 import dropicon from "../../assets/dropdown.png";
+import Card from '../Card/Card'
+import Card2 from '../Card2/Card2'
 
 // Css
 import classes from "../Rateus/Rateus.module.css";
@@ -22,11 +25,21 @@ function Rateus() {
         </div>
         {isActive && (
           <div className={classes.dropdowncontent}>
-            <div className={classes.dropdownitem}>Phones</div>
-            <div className={classes.dropdownitem}>Laptops</div>
-            <div className={classes.dropdownitem}>Household gadgets</div>
-            <div className={classes.dropdownitem}>AC</div>
-            <div className={classes.dropdownitem}>Motor drives</div>
+            <div className={classes.dropdownitem}>
+              <a href="##">Phones</a>
+            </div>
+            <div className={classes.dropdownitem}>
+              <a href="##">Laptops</a>
+            </div>
+            <div className={classes.dropdownitem}>
+              <a href="##">Household gadgets</a>
+            </div>
+            <div className={classes.dropdownitem}>
+              <a href="##">AC</a>
+            </div>
+            <div className={classes.dropdownitem}>
+              <a href="##">Motor drives</a>
+            </div>
           </div>
         )}
       </div>

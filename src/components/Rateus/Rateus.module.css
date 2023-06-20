@@ -40,6 +40,10 @@
   color: #686868;
   width: 100%;
 }
+.dropdown .dropdowncontent a{
+  text-decoration: none;
+  color: #000000;
+}
 .dropdown .dropdowncontent .dropdownitem {
   padding: 10px;
   cursor: pointer;
