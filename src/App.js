@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Rate from './pages/Rate';
+import Resource from './pages/Resource'
 import UserDashboard from './pages/UserDashboard'
 
 // styles
@@ -19,7 +20,8 @@ const App = () => {
                 <Routes>
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/UserDash' element={<UserDashboard/>}/>
-                    <Route exact path='/Rate' element={<Rate/>} />
+                    <Route exact path='/Rate' element={<Rate />} />
+                    <Route exact path='/Resource' element={<Resource/>}/>
                     <Route exact path='/login' element={<Login />} />
                     <Route exact path='/signup' element={<Signup />} />
                 </Routes>

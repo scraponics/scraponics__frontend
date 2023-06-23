@@ -4,7 +4,7 @@ import SideBar from '../components/UserSidebar/SideBar'
 
 function UserDashboard() {
   return (
-      <>
+    <>
         <SideBar/>
       </>
   )
