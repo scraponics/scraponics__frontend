@@ -1,13 +1,20 @@
-import React from 'react';
-
-import author from '../../assets/placeholder.jpg';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import blogImage from '../../assets/homecard.png';
+
+import newsData from '../../assets/newsData/newsData.json';
 
 
 // styles 
 import classes from './Blog.module.css';
 
 const Blog = () => {
+    const [category, setCategory] = useState("Circular Economy & Disposal")
+    const filterData = newsData.filter(item => item.Category === category);
+
+    const handleChange = (e) => {
+        setCategory(e.target.innerHTML);
+    }
     return (
         <>
             <h1 style={{
@@ -25,7 +32,8 @@ const Blog = () => {
 
 
                                             {/* blog card */}
-                                            <div className={classes.card__container}>
+                                            {filterData.map((data, index) => (
+                                            <div key={index} className={classes.card__container}>
                                                 <div className={classes.card__margin}>
                                                     <div className={classes.card__flex}>
                                                         <div className={classes.card__content}>
@@ -34,27 +42,15 @@ const Blog = () => {
                                                                     {
                                                                         color: 'black'
                                                                     }
-                                                                }>hellow world! helllow world!</h1>
+                                                                }>{data.Title}</h1>
                                                             </div>
                                                             <div className={classes.card__desc}>
                                                                 <h4 style={{
                                                                     color: '#ccc',
                                                                     fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
+                                                                }}>{data.Description}</h4>
                                                             </div>
-                                                            <div style={{
-                                                                display: 'flex',
-                                                                flexDirection: 'row',
-                                                                justifyContent: 'flex-start',
-                                                                alignItems: 'center',
-                                                                gap: '1rem'
-                                                            }}>
-                                                                <img style={{
-                                                                    width: '30px',
-                                                                    height: '30px'
-                                                                }} src={author} alt="" />
-                                                                <h3>john wick</h3>
-                                                            </div>
+                                                            <Link to={data.Link}>know more</Link>
 
                                                         </div>
                                                         <img style={{
@@ -63,298 +59,21 @@ const Blog = () => {
                                                         }} src={blogImage} alt="" />
                                                     </div>
                                                 </div>
-
-
-
-
-
-
                                             </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <div style={{
-                                                                display: 'flex',
-                                                                flexDirection: 'row',
-                                                                justifyContent: 'flex-start',
-                                                                alignItems: 'center',
-                                                                gap: '1rem'
-                                                            }}>
-                                                                <img style={{
-                                                                    width: '30px',
-                                                                    height: '30px'
-                                                                }} src={author} alt="" />
-                                                                <h3>john wick</h3>
-                                                            </div>
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div className={classes.card__container}>
-                                                <div className={classes.card__margin}>
-                                                    <div className={classes.card__flex}>
-                                                        <div className={classes.card__content}>
-                                                            <div className={classes.card__heading}>
-                                                                <h1 style={
-                                                                    {
-                                                                        color: 'black'
-                                                                    }
-                                                                }>hellow world! helllow world!</h1>
-                                                            </div>
-                                                            <div className={classes.card__desc}>
-                                                                <h4 style={{
-                                                                    color: '#ccc',
-                                                                    fontWeight: 'lighter'
-                                                                }}>Electronic Waste (E-Waste) means electrical and electronic equipment, whole or in part discarded as waste by the consumer or bulk consumer as well as rejects from manufacturing, refurbishment and repair processes...</h4>
-                                                            </div>
-                                                            <img style={{
-                                                                width: '30px',
-                                                                height: '30px'
-                                                            }} src={author} alt="" />
-
-                                                        </div>
-                                                        <img style={{
-                                                            width: '150px',
-                                                            height: '150px'
-                                                        }} src={blogImage} alt="" />
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </section>
 
                                 <aside className={classes.aside__container}>
                                     <div className={classes.sticky__container}>
-                                        {/* <h1 style={
-                                            {
-                                                margin: '0',
-                                                padding: '0'
-                                            }
-                                        }>sticky__container</h1> */}
                                         <h1 className={classes.heading}>Search By Categories</h1>
                                         <div className={classes.categories}>
-                                            <p>Lorem.</p>
-                                            <p>Lorem, ipsum dolor.</p>
-                                            <p>Lorem, ipsum.</p>
-                                            <p>Lorem.</p>
-                                            <p>Lorem. Lorem</p>
-                                            <p>Lorem.</p>
-                                            <p>Lorem, ipsum dolor.</p>
-                                            <p>Lorem, ipsum.</p>
-                                            <p>Lorem.</p>
-                                            <p>Lorem. Lorem</p>
+                                            <p onClick={handleChange}>Circular Economy and Disposal</p>
+                                            <p onClick={handleChange}>Policy and Regulations</p>
+                                            <p onClick={handleChange}>E-waste</p>
+                                            <p onClick={handleChange}>Right to Repair</p>
+                                            <p onClick={handleChange}>Right to Repair</p>
                                         </div>
                                     </div>
                                 </aside>
