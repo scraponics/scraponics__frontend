@@ -16,6 +16,7 @@ import DashboardVendor from './pages/DashboardVendor';
 
 // styles
 import './App.css';
+import ServicesUser from './pages/ServicesUser';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
                     <Route exact path='/dashboardpublic/*' element={<DashboardPublic />} />
                     <Route exact path='/dashboarduser/*' element={<DashboardUser />} />
                     <Route exact path='/dashboardvendor/*' element={<DashboardVendor />} />
+                    <Route exact path='/servicesuser' element={<ServicesUser />} />
                 </Routes>
             </div>
         </div>

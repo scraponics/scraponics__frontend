@@ -43,11 +43,15 @@
 }
 
 .forUsers {
-    width: 50%;
+    width: 33%;
 }
 
 .forVendors {
-    width: 50%;
+    width: 33%;
+}
+
+.forGovt {
+    width: 34%;
 }
 
 .dropdownHeading {

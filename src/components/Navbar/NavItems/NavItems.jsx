@@ -47,6 +47,14 @@ const NavItems = () => {
                                 </ul>
                             </div>
                         </div>
+                        <div className={classes.forGovt}>
+                            <p className={classes.dropdownHeading}>For Vendors</p>
+                            <div>
+                                <ul>
+                                    <li>Scrap Collections</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 )}
                 <Link to="/rate" style={{
