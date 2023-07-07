@@ -13,40 +13,31 @@ import RatePage from './pages/RatePage';
 import DashboardPublic from './pages/DashboardPublic';
 import DashboardUser from './pages/DashboardUser';
 import DashboardVendor from './pages/DashboardVendor';
-import Resource from "./pages/Resource";
+
 // styles
 import './App.css';
 
 
 const App = () => {
     return (
-      <div>
-        <div className="routes">
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/rate" element={<RatePage />} />
-            <Route exact path="/resource" element={<Resource />} />
-            <Route exact path="/logininduser" element={<LoginIndUser />} />
-            <Route exact path="/signupinduser" element={<SignupIndUser />} />
-            <Route exact path="/loginorg" element={<LoginOrg />} />
-            <Route exact path="/signuporg" element={<SignupOrg />} />
-            <Route exact path="/loginvendor" element={<LoginVendor />} />
-            <Route exact path="/signupvendor" element={<SignupVendor />} />
-            <Route
-              exact
-              path="/dashboardpublic/*"
-              element={<DashboardPublic />}
-            />
-            <Route exact path="/dashboarduser/*" element={<DashboardUser />} />
-            <Route
-              exact
-              path="/dashboardvendor/*"
-              element={<DashboardVendor />}
-            />
-          </Routes>
+        <div>
+            <div className="routes">
+                <Routes>
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/rate' element={<RatePage />} />
+                    <Route exact path='/logininduser' element={<LoginIndUser />} />
+                    <Route exact path='/signupinduser' element={<SignupIndUser />} />
+                    <Route exact path='/loginorg' element={<LoginOrg />} />
+                    <Route exact path='/signuporg' element={<SignupOrg />} />
+                    <Route exact path='/loginvendor' element={<LoginVendor />} />
+                    <Route exact path='/signupvendor' element={<SignupVendor />} />
+                    <Route exact path='/dashboardpublic/*' element={<DashboardPublic />} />
+                    <Route exact path='/dashboarduser/*' element={<DashboardUser />} />
+                    <Route exact path='/dashboardvendor/*' element={<DashboardVendor />} />
+                </Routes>
+            </div>
         </div>
-      </div>
-    );
+    )
 }
 
 export default App;
