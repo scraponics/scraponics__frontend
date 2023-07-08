@@ -9,7 +9,7 @@ import newsData from '../../assets/newsData/newsData.json';
 import classes from './Blog.module.css';
 
 const Blog = () => {
-    const [category, setCategory] = useState("Circular Economy & Disposal")
+    const [category, setCategory] = useState("Circular Economy and Disposal")
     const filterData = newsData.filter(item => item.Category === category);
 
     const handleChange = (e) => {
@@ -72,7 +72,6 @@ const Blog = () => {
                                             <p onClick={handleChange}>Circular Economy and Disposal</p>
                                             <p onClick={handleChange}>Policy and Regulations</p>
                                             <p onClick={handleChange}>E-waste</p>
-                                            <p onClick={handleChange}>Right to Repair</p>
                                             <p onClick={handleChange}>Right to Repair</p>
                                         </div>
                                     </div>
