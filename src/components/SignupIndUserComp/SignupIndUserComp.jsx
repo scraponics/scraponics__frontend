@@ -35,6 +35,7 @@ const SignupIndUserComp = () => {
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
+    console.log(base64);
     setUserDetails({ ...userDetails, profilePicture: base64 })
   };
 

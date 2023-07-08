@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { CgSearch } from 'react-icons/cg';
-import jsonData from '../../assets/scarpData/scrapData.json';
-import image from './../../assets/placeholder.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { rateDataFetch } from '../../actions/RateActions';
 
 // styles
 import classes from './Rate.module.css';
 
 const Rate = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(rateDataFetch());
+    }, []);
+    
+    // const loading = useSelector((state) => state.rateReducer.loading);
+    const Data = useSelector((state) => state.rateReducer.rateData);
+    // console.log(jsonData);
+
     const [query, setQuery] = useState('');
 
     const [categoryFilters, setCategoryFilters] = useState([]);
@@ -25,7 +35,7 @@ const Rate = () => {
     };
 
     // Filter the JSON data based on the selected categories
-    const filteredData = jsonData.filter((item) =>
+    const filteredData = Data.filter((item) =>
         categoryFilters.includes(item.category)
     );
 
@@ -128,7 +138,7 @@ const Rate = () => {
                         {filteredData.map((item, index) => (
                             <div key={index} className={classes.card}>
                                 <div className={classes.imgContainer}>
-                                    <img src={image} alt={item.name} />
+                                    <img src={filteredData[index].imageUrl} alt={item.name} />
                                 </div>
                                 <div className={classes.descContainer}>
                                     <div style={{
@@ -138,9 +148,9 @@ const Rate = () => {
                                         margin: '0'
                                     }}>
                                         <p className={classes.name}>{item.name}</p>
-                                        <p className={classes.price}>{item.price}</p>
+                                        <p className={classes.price}>{item.rate} ₹</p>
                                     </div>
-                                    <p>{item.desc}</p>
+                                    <p>{item.description}</p>
                                 </div>
                             </div>
                         ))}
