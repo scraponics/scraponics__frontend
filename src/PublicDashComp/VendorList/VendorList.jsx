@@ -78,16 +78,6 @@ const VendorList = () => {
             <p className={classes.percentage}>60%</p>
           </div>
         </div>
-        <div className={classes.statBox}>
-          <div className={classes.box1}>
-            <h1 className={classes.headingStat}>Active Vendors</h1>
-            <h1>1000</h1>
-          </div>
-          <div className={classes.box2}>
-            <BiUpArrowAlt />
-            <p className={classes.percentage}>60%</p>
-          </div>
-        </div>
       </div>
 
       <div className={classes.filterContainer}>
