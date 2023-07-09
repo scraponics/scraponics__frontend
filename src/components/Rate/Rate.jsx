@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { CgSearch } from 'react-icons/cg';
-import { useDispatch, useSelector } from 'react-redux';
-import { rateDataFetch } from '../../actions/RateActions';
+
 
 // styles
 import classes from './Rate.module.css';
 
 const Rate = () => {
-    const dispatch = useDispatch();
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        dispatch(rateDataFetch());
+        const fetchData = async () => {
+            try {
+                const response = await axios.post('http://localhost:5000/rate/get');
+                setData(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchData();
     }, []);
-    
-    // const loading = useSelector((state) => state.rateReducer.loading);
-    const Data = useSelector((state) => state.rateReducer.rateData);
-    // console.log(jsonData);
 
     const [query, setQuery] = useState('');
 
@@ -35,14 +39,13 @@ const Rate = () => {
     };
 
     // Filter the JSON data based on the selected categories
-    const filteredData = Data.filter((item) =>
+    const filteredData = data.filter((item) =>
         categoryFilters.includes(item.category)
     );
 
     const handleChange = (e) => {
         setQuery(e.target.value);
     }
-
 
     return (
         <div className={classes.ratePadding}>
@@ -111,7 +114,7 @@ const Rate = () => {
                         </form>
                     </div>
                     <div className={classes.heading}>
-                        <p>{filteredData.length} results</p>
+                        <p>0 results</p>
 
                         <div className={classes.sortContainer}>
                             <p>Sort By :</p>
@@ -135,25 +138,28 @@ const Rate = () => {
                                 <h1>No Items to Show</h1>
                             </div>
                         )}
-                        {filteredData.map((item, index) => (
-                            <div key={index} className={classes.card}>
-                                <div className={classes.imgContainer}>
-                                    <img src={filteredData[index].imageUrl} alt={item.name} />
-                                </div>
-                                <div className={classes.descContainer}>
-                                    <div style={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignContent: 'center',
-                                        margin: '0'
-                                    }}>
-                                        <p className={classes.name}>{item.name}</p>
-                                        <p className={classes.price}>{item.rate} ₹</p>
+
+                        {filteredData.map((item, index) => {
+                            return (
+                                <div key={index} className={classes.card}>
+                                    <div className={classes.imgContainer}>
+                                        <img src={filteredData[index].imageUrl} alt={item.name} />
                                     </div>
-                                    <p>{item.description}</p>
+                                    <div className={classes.descContainer}>
+                                        <div style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignContent: 'center',
+                                            margin: '0'
+                                        }}>
+                                            <p className={classes.name}>{item.name}</p>
+                                            <p className={classes.price}>{item.rate} ₹</p>
+                                        </div>
+                                        <p>{item.description}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
                 </section>
             </div>

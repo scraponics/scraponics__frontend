@@ -33,9 +33,24 @@ const NavItems = () => {
                             <p className={classes.dropdownHeading}>For Users</p>
                             <div>
                                 <ul>
-                                    <li>Scrap Sell</li>
-                                    <li>Donation</li>
-                                    <li>Awarness</li>
+                                    <Link to="/servicesuser" style={{
+                                        textDecoration: "none",
+                                        color: "#111"
+                                    }}>
+                                        <li>Scrap Sell</li>
+                                    </Link>
+                                    <Link to="/servicesuser" style={{
+                                        textDecoration: "none",
+                                        color: "#111"
+                                    }}>
+                                        <li>Awarness</li>
+                                    </Link>
+                                    <Link to="/servicesuser" style={{
+                                        textDecoration: "none",
+                                        color: "#111"
+                                    }}>
+                                        <li>Donation</li>
+                                    </Link>
                                 </ul>
                             </div>
                         </div>
@@ -67,7 +82,12 @@ const NavItems = () => {
                 </Link>
 
                 <div className={classes.item2}>
-                    Resources
+                    <Link to="/resource" style={{
+                        textDecoration: "none",
+                        color: "#111"
+                    }}>
+                        Resource
+                    </Link>
                 </div>
 
                 <Link to="/dashboardpublic" style={{

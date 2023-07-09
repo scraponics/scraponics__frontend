@@ -13,6 +13,7 @@ import RatePage from './pages/RatePage';
 import DashboardPublic from './pages/DashboardPublic';
 import DashboardUser from './pages/DashboardUser';
 import DashboardVendor from './pages/DashboardVendor';
+import Resource from './pages/Resource';
 
 // styles
 import './App.css';
@@ -36,6 +37,7 @@ const App = () => {
                     <Route exact path='/dashboarduser/*' element={<DashboardUser />} />
                     <Route exact path='/dashboardvendor/*' element={<DashboardVendor />} />
                     <Route exact path='/servicesuser' element={<ServicesUser />} />
+                    <Route exact path='/resource' element={<Resource />} />
                 </Routes>
             </div>
         </div>
