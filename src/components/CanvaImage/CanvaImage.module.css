@@ -1,4 +1,7 @@
 .canvaimage {
     height: 100vh;
-    background-image: linear-gradient(to bottom right, #E0E4FA, #57CC99);
+    background-image: url(../../assets/canvaImage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
