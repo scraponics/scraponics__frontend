@@ -1,25 +1,50 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { signupvendor } from '../../actions/AuthActions';
 
-import signupImage from '../../assets/signup.png';
 
 // styles 
+import signupImage from '../../assets/signup.png';
 import classes from './SignupVendorComp.module.css';
 
 const SignupVendorComp = () => {
+
+  const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.authReducer.loading);
 
   const [userDetails, setUserDetails] = useState({
     name: '',
     email: '',
     phoneNumber: '',
     profilePicture: '',
-    address: {
-      landmark: '',
-      district: '',
-      state: '',
-      postalCode: ''
-    },
+    landmark: '',
+    district: '',
+    state: '',
+    postalCode: '',
+    gstNumber: '',
     password: ''
   });
+
+  const [condition, setCondition] = useState(true);
+
+  const handleChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    console.log(base64);
+    setUserDetails({ ...userDetails, profilePicture: base64 })
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signupvendor(userDetails));
+    console.log("Registered");
+  }
 
   return (
     <div className={classes.signup}>
@@ -29,104 +54,209 @@ const SignupVendorComp = () => {
 
       <div className={classes.formContainer}>
         <img className={classes.image} src={signupImage} alt="sign up" />
-        <form className={classes.form} onSubmit={() => { }}>
-          {/* user name */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Name : </p>
-            <div className={classes.form__group}>
-              <input type="text" className={classes.form__name} name='user name' placeholder='Enter your name' value={userDetails.name} onChange={() => { }} />
+        {condition ?
+          <form className={classes.form} onSubmit={handleSubmit}>
+            {/* user name */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Name : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="text"
+                  className={classes.form__name}
+                  name='name'
+                  placeholder='Enter your name'
+                  value={userDetails.name}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          {/* user email */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Email : </p>
-            <div className={classes.form__group}>
-              <input type="email" className={classes.form__email} name='user Email' placeholder='Enter your email' value={userDetails.email} onChange={() => { }} />
+            {/* user email */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Email : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="email"
+                  className={classes.form__email}
+                  name='email'
+                  placeholder='Enter your email'
+                  value={userDetails.email}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
 
-          {/* user phonenumber */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Phone Number : </p>
-            <div className={classes.form__group}>
-              <input type="n" className={classes.form__phonenumber} name='user phone number' placeholder='Enter your phone number' value={userDetails.phoneNumber} onChange={() => { }} />
+            {/* user phonenumber */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Phone Number : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="text"
+                  className={classes.form__phonenumber}
+                  name='phoneNumber'
+                  placeholder='Enter your phone number'
+                  value={userDetails.phoneNumber}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          
-          {/* user gst number */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>GST Number : </p>
-            <div className={classes.form__group}>
-              <input type="n" className={classes.form__phonenumber} name='Enter GST number' placeholder='Enter your GST number' value={userDetails.gstNumber} onChange={() => { }} />
+            {/* profile image */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Profile Image</p>
+              <div className={classes.form__group}>
+                <input
+                  className={classes.form__image}
+                  name='profilePicture'
+                  type="file"
+                  placeholder='upload profile picture'
+                  onChange={handleFileUpload}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          {/* scrap image */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Profile Image</p>
-            <div className={classes.form__group}>
-              <input className={classes.form__image} type="file" placeholder='upload profile picture' />
+            <p style={{
+              fontSize: '1.5rem',
+              fontWeight: 'bold'
+            }}>Address : </p>
+
+            {/* user landmark */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Landmark : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="text"
+                  className={classes.form__name}
+                  name='landmark'
+                  placeholder='nearby landmark'
+                  value={userDetails.landmark}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          <p style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold'
-          }}>Address : </p>
-
-          {/* user landmark */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Landmark : </p>
-            <div className={classes.form__group}>
-              <input type="text" className={classes.form__name} name='user landmark' placeholder='nearby landmark' value={userDetails.address.landmark} onChange={() => { }} />
+            {/* user district */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>District : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="text"
+                  className={classes.form__name}
+                  name='district'
+                  placeholder='Enter your District'
+                  value={userDetails.district}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          {/* user district */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>District : </p>
-            <div className={classes.form__group}>
-              <input type="text" className={classes.form__name} name='user district' placeholder='Enter your District' value={userDetails.address.district} onChange={() => { }} />
+            {/* user state and postal code */}
+            <div className={classes.inputwrapper}>
+              <div className={classes.form__group}>
+                <select
+                  className={classes.form__select}
+                  name="state"
+                  value={userDetails.category}
+                  placeholder='state'
+                  onChange={handleChange} autoComplete='on'
+                >
+                  <option value="Assam">Assam</option>
+                  <option value="Arunachal">Arunachal</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Nagaland">Nagaland</option>
+                </select>
+              </div>
+              <div className={classes.form__group}>
+                <input
+                  type="number"
+                  className={classes.form__name}
+                  name='postalCode'
+                  placeholder='PIN number'
+                  value={userDetails.postalCode}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
-
-          {/* user state and postal code */}
-          <div className={classes.inputwrapper}>
-            <div className={classes.form__group}>
-              <select className={classes.form__select} name="category" value={userDetails.category} placeholder='state' onChange={() => { }}>
-                <option value="T.V">Assam</option>
-                <option value="CPU">Arunachal</option>
-                <option value="Mobile">Manipur</option>
-                <option value="Monitor">Nagaland</option>
-              </select>
+            {/* user gstnumber */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>GST Number : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="number"
+                  className={classes.form__name}
+                  name='gstNumber'
+                  placeholder='Enter your GST Number'
+                  value={userDetails.gstNumber}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-            <div className={classes.form__group}>
-              <input type="number" className={classes.form__name} name='Postal Code' placeholder='PIN number' value={userDetails.address.postalCode} onChange={() => { }} />
+
+            {/* user district */}
+            <div className={classes.inputwrapper}>
+              <p className={classes.label}>Password : </p>
+              <div className={classes.form__group}>
+                <input
+                  type="password"
+                  className={classes.form__name}
+                  name='password'
+                  placeholder='Enter your password'
+                  value={userDetails.password}
+                  onChange={handleChange}
+                  autoComplete='on'
+                />
+              </div>
             </div>
-          </div>
 
-          {/* user district */}
-          <div className={classes.inputwrapper}>
-            <p className={classes.label}>Password : </p>
+
+            {/* scarp category */}
+            <Link to='/logininduser'>
+              <p>already have an account - login page</p>
+            </Link>
+            {/* details submit */}
             <div className={classes.form__group}>
-              <input type="password" className={classes.form__name} name='password' placeholder='Enter your password' value={userDetails.address.district} onChange={() => { }} />
+              <button className={classes.form__submit} type='submit'>
+                {loading ?
+                  <p>Loading</p>
+                  :
+                  <p>Sign Up</p>
+                }
+              </button>
             </div>
+          </form>
+          :
+          <div className={classes.successfullContainer}>
+            <p>You have succesfully Registered</p>
+            <Link to='/logininduser'>
+              <p>click here to go to the - login page</p>
+            </Link>
           </div>
-
-
-          {/* scarp category */}
-
-          {/* details submit */}
-          <div className={classes.form__group}>
-            <button className={classes.form__submit} type='submit'>Sign Up</button>
-          </div>
-        </form>
+        }
       </div>
     </div>
   )
 }
 
-export default SignupVendorComp
+export default SignupVendorComp;
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result)
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
+};
