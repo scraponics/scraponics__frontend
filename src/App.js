@@ -14,10 +14,12 @@ import DashboardPublic from './pages/DashboardPublic';
 import DashboardUser from './pages/DashboardUser';
 import DashboardVendor from './pages/DashboardVendor';
 import Resource from './pages/Resource';
+import ServicesUser from './pages/ServicesUser';
+import ServicesVendor from './pages/ServicesVendor';
+import ServicesGovt from './pages/ServicesGovt';
 
 // styles
 import './App.css';
-import ServicesUser from './pages/ServicesUser';
 
 
 const App = () => {
@@ -37,6 +39,8 @@ const App = () => {
                     <Route exact path='/dashboarduser/*' element={<DashboardUser />} />
                     <Route exact path='/dashboardvendor/*' element={<DashboardVendor />} />
                     <Route exact path='/servicesuser' element={<ServicesUser />} />
+                    <Route exact path='/servicesvendor' element={<ServicesVendor />} />
+                    <Route exact path='/servicesgovt' element={<ServicesGovt />} />
                     <Route exact path='/resource' element={<Resource />} />
                 </Routes>
             </div>

@@ -58,15 +58,25 @@ const NavItems = () => {
                             <p className={classes.dropdownHeading}>For Vendors</p>
                             <div>
                                 <ul>
-                                    <li>Scrap Collections</li>
+                                <Link to="/servicesvendor" style={{
+                                        textDecoration: "none",
+                                        color: "#111"
+                                    }}>
+                                        <li>Scrap Collections</li>
+                                    </Link>
                                 </ul>
                             </div>
                         </div>
                         <div className={classes.forGovt}>
-                            <p className={classes.dropdownHeading}>For Vendors</p>
+                            <p className={classes.dropdownHeading}>For Govt.</p>
                             <div>
                                 <ul>
-                                    <li>Scrap Collections</li>
+                                <Link to="/servicesuser" style={{
+                                        textDecoration: "none",
+                                        color: "#111"
+                                    }}>
+                                        <li>Policy</li>
+                                    </Link>
                                 </ul>
                             </div>
                         </div>
