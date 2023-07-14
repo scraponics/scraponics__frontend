@@ -132,7 +132,7 @@
     grid-column: 5 / span 8;
 }
 
-.rating {
+.capacity {
     grid-row-start: 1;
     grid-column: 9 / span 10;
 }
