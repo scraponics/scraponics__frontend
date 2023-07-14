@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn } from '../../actions/AuthActions';
+import { logininduser } from '../../actions/AuthActions';
 
 // styles
 import loginImage from '../../assets/login.png'
@@ -28,7 +28,7 @@ const LoginIndUserComp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(logIn(userDetails, navigate));
+    dispatch(logininduser(userDetails, navigate));
     console.log("log in successfully");
   }
 
@@ -36,7 +36,7 @@ const LoginIndUserComp = () => {
   return (
     <div className={classes.login}>
       <div className={classes.header}>
-        <h1 className={classes.heading}>Welcome back!</h1>
+        <h1 className={classes.heading}>Welcome back! Login as an individual seller</h1>
       </div>
 
 

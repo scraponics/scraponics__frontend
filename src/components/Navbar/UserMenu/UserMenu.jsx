@@ -60,8 +60,18 @@ const UserMenu = () => {
                       }}>
                         <MenuItem label="individual" />
                       </Link>
-                      <MenuItem label="Organisaction" />
-                      <MenuItem label="Vendor" />
+                      <Link to='/loginorg' style={{
+                        textDecoration: "none",
+                        color: "#111",
+                      }}>
+                        <MenuItem label="organisation" />
+                      </Link>
+                      <Link to='/loginvendor' style={{
+                        textDecoration: "none",
+                        color: "#111",
+                      }}>
+                        <MenuItem label="vendor" />
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -77,8 +87,18 @@ const UserMenu = () => {
                       }}>
                         <MenuItem label="individual" />
                       </Link>
-                      <MenuItem label="Organisaction" />
-                      <MenuItem label="Vendor" />
+                      <Link to='/signuporg' style={{
+                        textDecoration: "none",
+                        color: "#111",
+                      }}>
+                        <MenuItem label="Organisaction" />
+                      </Link>
+                      <Link to='/signupvendor' style={{
+                        textDecoration: "none",
+                        color: "#111",
+                      }}>
+                        <MenuItem label="Vendor" />
+                      </Link>
                     </div>
                   )}
                 </div>

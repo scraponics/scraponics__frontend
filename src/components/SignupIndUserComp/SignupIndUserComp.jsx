@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { signUp } from '../../actions/AuthActions';
+import { signupinduser } from '../../actions/AuthActions';
 
 
 // styles 
@@ -41,7 +41,7 @@ const SignupIndUserComp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUp(userDetails));
+    dispatch(signupinduser(userDetails));
     console.log("Registered");
   }
 
