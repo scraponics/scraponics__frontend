@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: "https://scraponicsbackend.onrender.com" });
 
 export const logininduser = (userDetails) => API.post('/auth/logininduser', userDetails);
 export const signupinduser = (userDetails) => API.post('/auth/signupinduser', userDetails);
