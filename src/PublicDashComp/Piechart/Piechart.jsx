@@ -7,11 +7,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 export const data = {
-    labels: ['laditya', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Consumer Electronics:', 'IT and Telecommunication Equipment', 'Office Equipment', 'Home Appliances', 'Industrial Equipment', 'Medical Devices'],
     datasets: [
         {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'percentage',
+            data: [25, 25, 20, 10, 10, 10],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -37,7 +37,7 @@ const Piechart = () => {
 
     return (
         <div>
-            <h1 className={classes.heading}>Doughnut example</h1>
+            <h1 className={classes.heading}>E-Waste generation Category-wise</h1>
             <Doughnut data={data} />
         </div>
     );

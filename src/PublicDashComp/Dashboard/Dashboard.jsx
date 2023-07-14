@@ -43,7 +43,7 @@ const Dashboard = () => {
                   <p>Weekly Transactions</p>
                   <RiCustomerService2Line className={classes.icon} />
                 </div>
-                <p className={classes.number}>1k tons</p>
+                <p className={classes.number}>100 tons</p>
                 <div className={classes.box1}>
                   <p>+16%</p>
                   <p>than last week</p>
@@ -54,7 +54,7 @@ const Dashboard = () => {
                   <p>Monthly Transactions</p>
                   <RiCustomerService2Line className={classes.icon} />
                 </div>
-                <p className={classes.number}>4k tons</p>
+                <p className={classes.number}>840 tons</p>
                 <div className={classes.box1}>
                   <p>+14%</p>
                   <p>than last month</p>

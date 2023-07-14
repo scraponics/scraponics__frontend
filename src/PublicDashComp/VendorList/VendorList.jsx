@@ -4005,7 +4005,7 @@ const data = [
 
 const VendorList = () => {
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Assam");
 
 
 
